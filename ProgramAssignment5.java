@@ -3,7 +3,7 @@
 // June 29, 2021
 
 package csc160Assignments;
-
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -76,8 +76,8 @@ public class ProgramAssignment5 {
 	}
 	
 	//This converts the letters in the phone number into numbers.
-	public int getNumber(char num) {
-		 switch(num) {
+	public int getNumber(char ch) {
+		 switch(ch) {
 		 	case 'A': case 'B': case 'C': return 2;
 		 	case 'D': case 'E': case 'F': return 3;
 		 	case 'G': case 'H': case 'I': return 4;
@@ -92,8 +92,24 @@ public class ProgramAssignment5 {
 	
 	//This takes the inputed phone number and converts to the numeric phone number.
 	public String translateNumber(String num) {
-		
-		
+		String subNum = num.substring(4, 11);
+        char[] ch = new char[subNum.length()];
+        String newPhoneNumber = num.substring(0, 4);
+        
+        for (int i = 0; i < subNum.length(); i++) {
+            ch[i] = subNum.charAt(i);
+        }
+        for(int i = 0; i < ch.length; i++) {
+        	if(Character.isDigit(ch[i])) {
+        		newPhoneNumber += ch[i];
+        	}
+        	if(Character.isLetter(ch[i])) {
+        		Character.toUpperCase(ch[i]);
+        		newPhoneNumber += getNumber(ch[i]);
+        	}
+        }
+        System.out.println(newPhoneNumber);
+        
 		return null;
 	}
 	
@@ -114,6 +130,7 @@ public class ProgramAssignment5 {
 		System.out.print(pa5.clean(phoneNumber) + "\n");
 		
 		pa5.isVaildPhoneNumber(pa5.clean(phoneNumber));
+		pa5.translateNumber(pa5.clean(phoneNumber));
 	}
 
 }
