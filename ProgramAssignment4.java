@@ -115,7 +115,6 @@ public class ProgramAssignment4 {
 				boolean done = pa4.roll();
 				if (done) {
 					System.out.println("Would you like to try again?(y or n): ");
-					System.out.println("");
 					String tryAgain = scr.next();
 					
 					if(tryAgain.equalsIgnoreCase("y")) {

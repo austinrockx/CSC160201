@@ -83,7 +83,7 @@ public class midTerm {
 					continue;
 					
 				case "grad":
-					mt.addToUndergradGPA(i++, gpa);
+					mt.addToGradGPA(i++, gpa);
 					continue;
 				}
 				
